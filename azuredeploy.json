@@ -49,7 +49,7 @@
         "vhdContainerName": "[concat(variables('namingInfix'), 'vhd')]",
         "addressPrefix": "10.0.0.0/24",
         "subnetPrefix": "10.0.0.32/28",
-        "virtualNetworkName": "stat-app-vnet",
+        "virtualNetworkName": "start-app-vnet",
         "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
         "subnetName": "start-app-api-sn",
         "loadBalancerName": "[concat(variables('namingInfix'), 'lb')]",
