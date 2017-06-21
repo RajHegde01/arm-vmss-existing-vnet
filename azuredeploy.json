@@ -44,7 +44,7 @@
         }
     },
     "variables": {
-        "namingInfix": "startapi",
+        "namingInfix": "startssapi",
         "longNamingInfix": "[toLower(parameters('vmssName'))]",
         "vhdContainerName": "[concat(variables('namingInfix'), 'vhd')]",
         "addressPrefix": "10.0.0.0/24",
@@ -158,7 +158,7 @@
                 "virtualMachineProfile": {
                     "storageProfile": {
                         "imageReference": {
-                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapi-image-20170620173111"
+                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapi-image-20170621133856"
                         }
                     },
                     "osProfile": {
