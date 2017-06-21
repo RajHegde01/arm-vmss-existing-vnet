@@ -44,7 +44,7 @@
         }
     },
     "variables": {
-        "namingInfix": "startssapi",
+        "namingInfix": "startapi",
         "longNamingInfix": "[toLower(parameters('vmssName'))]",
         "vhdContainerName": "[concat(variables('namingInfix'), 'vhd')]",
         "addressPrefix": "10.0.0.0/24",
