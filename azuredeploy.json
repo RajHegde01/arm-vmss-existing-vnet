@@ -68,27 +68,6 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('virtualNetworkName')]",
-            "apiVersion": "[variables('networkApiVersion')]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[variables('publicIPAddressName')]",
             "apiVersion": "[variables('networkApiVersion')]",
@@ -199,8 +178,7 @@
                 }
             },
             "dependsOn": [
-                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
             ]
         }
     ]
