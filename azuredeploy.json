@@ -137,7 +137,7 @@
                 "virtualMachineProfile": {
                     "storageProfile": {
                         "imageReference": {
-                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapi-image-20170621133856"
+                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapi-image-20170621152257"
                         }
                     },
                     "osProfile": {
