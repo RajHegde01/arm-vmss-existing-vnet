@@ -1,36 +1,36 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmSku": {
             "defaultValue": "Standard_DS2_V2",
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Size of VMs in the VM Scale Set."
             }
         },
         "vmssName": {
             "maxLength": 61,
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "String used as a base for naming resources. Must be 3-61 characters in length and globally unique across Azure. A hash is prepended to this string for some resources, and resource-specific information is appended."
             }
         },
         "instanceCount": {
             "maxValue": 100,
-            "type": "Int",
+            "type": "int",
             "metadata": {
                 "description": "Number of VM instances (100 or less)."
             }
         },
         "adminUsername": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Admin username on all VMs."
             }
         },
         "adminPassword": {
-            "type": "SecureString",
+            "type": "securestring",
             "metadata": {
                 "description": "Admin password on all VMs."
             }
@@ -44,14 +44,14 @@
         }
     },
     "variables": {
-        "namingInfix": "startapi",
+        "namingInfix": "startapp",
         "longNamingInfix": "[toLower(parameters('vmssName'))]",
         "vhdContainerName": "[concat(variables('namingInfix'), 'vhd')]",
         "addressPrefix": "10.0.0.0/24",
-        "subnetPrefix": "10.0.0.32/28",
+        "subnetPrefix": "10.0.0.64/28",
         "virtualNetworkName": "start-app-vnet",
         "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
-        "subnetName": "start-app-api-sn",
+        "subnetName": "start-app-app-sn",
         "loadBalancerName": "[concat(variables('namingInfix'), 'lb')]",
         "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
         "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
@@ -90,7 +90,7 @@
                         "name": "LoadBalancerFrontEnd",
                         "properties": {
                             "subnet": {
-                                "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Network/virtualNetworks/start-app-vnet/subnets/start-app-api-sn"
+                                "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Network/virtualNetworks/start-app-vnet/subnets/start-app-app-sn"
                             }
                         }
                     }
@@ -137,7 +137,7 @@
                 "virtualMachineProfile": {
                     "storageProfile": {
                         "imageReference": {
-                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapi-image-20170621152257"
+                            "id": "/subscriptions/54abd2df-ef33-4f4d-b79f-e6dfe6c642c2/resourceGroups/start-poc-infra/providers/Microsoft.Compute/images/startapp-image-20170622105743"
                         }
                     },
                     "osProfile": {
